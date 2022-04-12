@@ -7,37 +7,22 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
   </head>
   <body>
-	<!-- <script src="wasm_exec.js"></script> -->
-	<!-- <script>
+    <!-- <script src="wasm_exec.js"></script> -->
+    <!-- <script>
 		
 	  </script> -->
-    <script>
-      var w;
-
-      function startWorker() {
-        if (typeof Worker !== "undefined") {
-          if (typeof w == "undefined") {
-            w = new Worker("demo_workers.js");
-          }
-          w.onmessage = function (event) {
-            document.getElementById("result").innerHTML = event.data;
-          };
-        } else {
-          document.getElementById("result").innerHTML =
-            "Sorry! No Web Worker support.";
-        }
-      }
-
-      function stopWorker() {
-        w.terminate();
-        w = undefined;
-      }
-    </script>
+    <script src="assets/functions.js"></script>
 
     <div id="wrapper">
-      <p>Count numbers: <output id="result"></output></p>
-      <button onclick="startWorker()">Start Worker</button>
-      <button onclick="stopWorker()">Stop Worker</button>
+      <div id="info">
+        <p>Count numbers: <output id="result"></output></p>
+      </div>
+
+      <div id="operations">
+        <button id="btn-start" onclick="startWorker()">Start Worker</button>
+        <button id="btn-stop" onclick="stopWorker()">Stop Worker</button>
+      </div>
+
       <h1>Travelling salesman problem</h1>
 
       <div id="operations">
