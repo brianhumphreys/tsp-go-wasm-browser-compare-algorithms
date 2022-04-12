@@ -5,12 +5,13 @@
   "main": "tsp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress --profile --colors --env=prod && npm run copy-modules && npm run compile-go && npm run copy-index && npm run copy-css",
+    "build": "webpack --progress --profile --colors --env=prod && npm run copy-modules && npm run compile-go && npm run copy-index && npm run copy-css && npm run copy-worker",
     "w": "npm run build -- -w ",
     "copy-modules": "cp ./assets/wasm_exec.js ./build",
     "copy-css": "cp -R ./css ./build",
     "compile-go": "cd wasm_modules && GOOS=js GOARCH=wasm go build -o ../build/test.wasm",
     "copy-index": "cp index.html ./build",
+    "copy-worker": "cp ./assets/demo_workers.js ./build",
     "server": "go run server/server.go"
   },
   "author": "oldj",
