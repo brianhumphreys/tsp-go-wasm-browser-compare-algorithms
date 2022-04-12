@@ -32,8 +32,14 @@
 		<span class="ln"><a href="https://oldj.net">oldj.net</a></span>
 	</div>
 </div>
-
-<script src="build/jquery-3.2.1.min.js"></script>
-<script src="build/bundle.js"></script>
+<script src="wasm_exec.js"></script>
+<script>
+	const go = new Go();
+	WebAssembly.instantiateStreaming(fetch("test.wasm"), go.importObject).then((result) => {
+		go.run(result.instance);
+	});
+</script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="bundle.js"></script>
 </body>
 </html>
