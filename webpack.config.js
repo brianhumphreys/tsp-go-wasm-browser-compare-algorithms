@@ -1,8 +1,3 @@
-/**
- * @author oldj
- * @blog https://oldj.net
- */
-
 'use strict'
 
 const path = require('path')
@@ -67,4 +62,3 @@ const config = {
 module.exports = function (env) {
   return Object.assign(config.base, config[env])
 }
-
